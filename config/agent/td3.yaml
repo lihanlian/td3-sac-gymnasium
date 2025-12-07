@@ -1,0 +1,40 @@
+# config/agent/sac.yaml  (fully-recursive; no outer "agent:" block)
+
+name: td3
+_target_: agent.td3.TD3Agent
+# params:
+obs_dim: ??? # to be specified later
+action_dim: ??? # to be specified later
+action_range: ??? # to be specified later
+device: ${device}
+discount: 0.99
+actor_lr: 1e-4
+actor_betas: [0.9, 0.999] #! ???
+critic_lr: 1e-4
+critic_betas: [0.9, 0.999]
+tau: 0.005
+policy_update_frequency: 2
+expl_noise: 0.1
+policy_noise: 0.2
+noise_clip: 0.5
+batch_size: 1024
+
+# Children are nested directly under the parent. Hydra will
+# instantiate these first and pass the objects into SACAgentRecursive.
+
+critic:
+  _target_: agent.critic.DoubleQCritic
+  obs_dim: ${..obs_dim}
+  action_dim: ${..action_dim}
+  hidden_dim: 1024
+  hidden_depth: 2
+  
+actor:
+  _target_: agent.actor.TD3Actor
+  obs_dim: ${..obs_dim}
+  action_dim: ${..action_dim}
+  hidden_dim: 1024
+  hidden_depth: 2
+  action_range: ${..action_range}
+
+
