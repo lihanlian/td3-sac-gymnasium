@@ -20,7 +20,7 @@ class TD3Agent(Agent):
         critic_lr, critic_betas, tau, 
         policy_update_frequency, expl_noise, policy_noise,
         noise_clip, batch_size, name):
-        # print(f"[SACAgentRecursive.__init__] discount={discount}, init_temperature={init_temperature}")
+
         self.action_range = action_range
         # ! New added variables
         self.min_action = action_range[0]

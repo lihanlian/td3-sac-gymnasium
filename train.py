@@ -101,28 +101,28 @@ class WorkSpace():
         while self.step <= self.cfg.num_train_steps:
 
             # This reset the environment (done) and evaluate the agent (eval_frequency)
-            if done or self.step % self.cfg.eval_frequency == 0:
+            # if done or self.step % self.cfg.eval_frequency == 0:
                 
-                # evaluate agent periodically and dump logging info (after first update)
-                if self.step > self.cfg.num_seed_steps and self.step % self.cfg.eval_frequency == 0:
-                    self.logger.log('eval/episode', episode, self.step)
-                    # This use a separate environment and should not interupt the training loop
-                    self.evaluate()
-                    # first dump (save=True) create _csv_writer (to call .flush())
-                    self.logger.dump(self.step,save=True)
+            # evaluate agent periodically and dump logging info (after first update)
+            if self.step > self.cfg.num_seed_steps and self.step % self.cfg.eval_frequency == 0:
+                self.logger.log('eval/episode', episode, self.step)
+                # This use a separate environment and should not interupt the training loop
+                self.evaluate()
+                # first dump (save=True) create _csv_writer (to call .flush())
+                self.logger.dump(self.step,save=True)
 
-                # reset the environment only when episode is done 
-                if done:
-                    self.logger.log('train/episode_reward', 
-                                    episode_reward, self.step)
-                    obs, _ = self.env.reset()
-                    self.agent.reset() #! what does this do?
-                    done = False
-                    episode_reward = 0
-                    episode_step = 0
-                    episode += 1
+            # reset the environment only when episode is done 
+            if done:
+                self.logger.log('train/episode_reward', 
+                                episode_reward, self.step)
+                obs, _ = self.env.reset()
+                self.agent.reset() #! what does this do?
+                done = False
+                episode_reward = 0
+                episode_step = 0
+                episode += 1
 
-                    self.logger.log('train/episode', episode, self.step)
+                self.logger.log('train/episode', episode, self.step)
             
             # sample action for data collection
             if self.step < self.cfg.num_seed_steps:
@@ -134,9 +134,11 @@ class WorkSpace():
                         self.agent.get_action(obs)
                         + np.random.normal(0, self.agent.expl_noise, size=self.agent.action_dim)
                     ).clip(self.agent.min_action, self.agent.max_action)
-            else:
+            elif self.agent.name == 'sac':
                 with torch.no_grad():
                     action = self.agent.get_action(obs, sample=True)
+            else:
+                raise ValueError(f"Invalid agent name: {self.agent.name!r}")
 
             # run training update
             if self.step >= self.cfg.num_seed_steps:

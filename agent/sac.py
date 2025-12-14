@@ -8,7 +8,7 @@ from agent import Agent
 import utils
 # import hydra
 
-class SACAgentRecursive(Agent):
+class SACAgent(Agent):
     """
     Fully-recursive style: Hydra will instantiate critic/actor/replay first
     and pass REAL OBJECTS into this constructor.

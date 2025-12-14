@@ -1,20 +1,34 @@
 
 ## Overview
 
-This repository provide pytorch implementation of **Twin Delayed (TD3)** and **Soft Actor-Critic (SAC)** RL algorithms using gymnasium (MuJoCo) environments. Code is implemented using **Python 3.10** and **gymnasium 1.2.2**. More implementation details can be found at this [blog post](https://lihanlian.github.io/posts/blog9). 
+This repository provide pytorch implementation of **Twin Delayed (TD3)** and **Soft Actor-Critic (SAC)** RL algorithms using gymnasium (MuJoCo) environments. Code is implemented using **Python 3.10**, **hydra-core 1.3.2** and **gymnasium 1.2.2**. More implementation details can be found at this [blog post](https://lihanlian.github.io/posts/blog9). 
 
 **TD3 Result**
-
-**SAC Result**
-
 <p align="center">
-  <img alt="Image 1" src="./animation/ant.gif" width="20%" />
-  <img alt="Image 1" src="./animation/half-cheetah.gif" width="20%" />
-  <img alt="Image 1" src="./animation/hopper.gif" width="20%" />
-  <img alt="Image 1" src="./animation/walker.gif" width="20%" />
+  <img alt="Image 1" src="./animation/ant-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/half-cheetah-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/hopper-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/walker-sac.gif" width="20%" />
 </p>
 
+**SAC Result**
+<p align="center">
+  <img alt="Image 1" src="./animation/ant-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/half-cheetah-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/hopper-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/walker-sac.gif" width="20%" />
+</p>
 
+**Training Curves**
+
+## Run Locally
+After clone the repo
+```bash
+conda env create -n td3sac -f td3.yaml # If you use conda
+```
+Go to project directory
+
+- run _train.py_ to start training using the rl algorithms specified in the train.yaml.
 
 ## References
  1. [Addressing Function Approximation Error in Actor-Critic Methods](https://proceedings.mlr.press/v80/fujimoto18a) (TD3 Paper)

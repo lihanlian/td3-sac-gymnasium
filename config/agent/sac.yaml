@@ -1,7 +1,7 @@
 # config/agent/sac.yaml  (fully-recursive; no outer "agent:" block)
 
 name: sac
-_target_: agent.sac.SACAgentRecursive
+_target_: agent.sac.SACAgent
 # params:
 obs_dim: ??? # to be specified later
 action_dim: ??? # to be specified later
