@@ -1,14 +1,14 @@
 # config/train.yaml
 defaults:
   - _self_          # apply train.yaml first
-  - agent: sac      # merge agent:sac after → it wins
+  - agent: td3      # merge agent:sac after → it wins
 
 # this needs to be specified manually
 # Example: MountainCarContinuous-v0,Pendulum-v1,
 # HalfCheetah-v5， HumanoidStandup-v5, Swimmer-v5
 # Reacher-v5, Hopper-v5， Walker2d-v5， etc
 # More information can be found at: https://gymnasium.farama.org/environments/mujoco/
-experiment: HalfCheetah-v5
+experiment: Ant-v5
 
 num_train_steps: 1e6
 replay_buffer_capacity: ${num_train_steps}
@@ -26,6 +26,6 @@ seed: 42
 
 hydra:
   run:
-    dir: ./exp/${experiment}/seed${seed}_${now:%H%M%S}
+    dir: ./exp_${agent.name}/${experiment}/seed${seed}_${now:%H%M%S}
   job:
     chdir: true

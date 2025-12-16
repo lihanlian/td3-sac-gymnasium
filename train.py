@@ -16,8 +16,8 @@ from logger import Logger
 from  replay_buffer import ReplayBuffer
 import utils
 import hydra
-from omegaconf import DictConfig, OmegaConf
-from hydra.utils import instantiate
+from omegaconf import DictConfig
+
 
 class WorkSpace():
     def __init__(self, cfg):
@@ -34,16 +34,16 @@ class WorkSpace():
         # !Change here, put arguments to yaml later
         self.env = gym.make(self.cfg.experiment,
                             render_mode='rgb_array',
-                            # width=256,
-                            # height=256,
                             )
-        # self.env = RescaleAction(self.env, min_action=-0.4, max_action=0.4)
+        
         
         self.env_eval = gym.make(self.cfg.experiment,
                             render_mode='rgb_array',
                             # width=256,
                             # height=256,
                             )
+        # Rescale action space if necessary
+        # self.env = RescaleAction(self.env, min_action=-0.4, max_action=0.4)
         # self.env_eval = RescaleAction(self.env_eval, min_action=-0.4, max_action=0.4)
         # camera_id=0
 

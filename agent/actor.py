@@ -91,7 +91,6 @@ class TD3Actor(nn.Module):
             output_mod=nn.Tanh()      # this replaces torch.tanh at the end
         )
         self.max_action = action_range[1]
-        # self.max_action = max_action
 
     def forward(self, state):
         # net(state) is in [-1, 1] thanks to Tanh

@@ -5,18 +5,18 @@ This repository provide pytorch implementation of **Twin Delayed (TD3)** and **S
 
 **TD3 Result**
 <p align="center">
-  <img alt="Image 1" src="./animation/ant-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/half-cheetah-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/hopper-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/walker-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/sac-ant.gif" width="20%" />
+  <img alt="Image 1" src="./animation/sac-half-cheetah.gif" width="20%" />
+  <img alt="Image 1" src="./animation/sac-hopper.gif" width="20%" />
+  <img alt="Image 1" src="./animation/sac-walker.gif" width="20%" />
 </p>
 
 **SAC Result**
 <p align="center">
-  <img alt="Image 1" src="./animation/ant-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/half-cheetah-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/hopper-sac.gif" width="20%" />
-  <img alt="Image 1" src="./animation/walker-sac.gif" width="20%" />
+  <img alt="Image 1" src="./animation/td3-ant.gif" width="20%" />
+  <img alt="Image 1" src="./animation/td3-half-cheetah.gif" width="20%" />
+  <img alt="Image 1" src="./animation/td3-hopper.gif" width="20%" />
+  <img alt="Image 1" src="./animation/td3-walker.gif" width="20%" />
 </p>
 
 **Training Curves**
