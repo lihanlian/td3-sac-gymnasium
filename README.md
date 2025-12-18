@@ -20,18 +20,23 @@ This repository provide pytorch implementation of **Twin Delayed (TD3)** and **S
 </p>
 
 **Training Curves**
+<p align="center">
+  <img src="./figs/sac-ant.png" width="50%" />
+<p>
 
 ## Run Locally
 After clone the repo
 ```bash
-conda env create -n td3sac -f td3.yaml # If you use conda
+conda env create -n td3sac -f environment.yaml # If you use conda
 ```
 Go to project directory
 
-- run _train.py_ to start training using the rl algorithms specified in the train.yaml.
+- Run _train.py_ to start training loop using the rl algorithms specified in the train.yaml.
+- Run _notebook.py_ to get training plots and it contains related code snippets for better illustration of the algorithmic implementation.
+- Change parameters stored in the configuration yaml files under the config folder
 
 ## References
  1. [Addressing Function Approximation Error in Actor-Critic Methods](https://proceedings.mlr.press/v80/fujimoto18a) (TD3 Paper)
  2. [Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor](https://proceedings.mlr.press/v80/haarnoja18b) (SAC Paper)
  3. [TD3](https://spinningup.openai.com/en/latest/algorithms/td3.html), [SAC](https://spinningup.openai.com/en/latest/algorithms/sac.html) (OpenAI Spinning Up) 
- 4. [pytorch_sac](https://github.com/denisyarats/pytorch_sac) (PyTorch implementation of Soft Actor-Critic.)
+ 4. [TD3](https://github.com/sfujim/TD3), [pytorch_sac](https://github.com/denisyarats/pytorch_sac) (PyTorch implementation of TD3 & SAC)

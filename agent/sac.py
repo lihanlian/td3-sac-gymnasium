@@ -43,7 +43,7 @@ class SACAgent(Agent):
         self.log_alpha = torch.tensor(np.log(init_temperature)).to(self.device)
         self.log_alpha.requires_grad = True 
         # set target entropy to =-|A|
-        self.target_entropy = -0.5*action_dim
+        self.target_entropy = -1*action_dim
 
         # optimizers
         self.actor_optimizer = torch.optim.Adam(self.actor.parameters(),

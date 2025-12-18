@@ -22,7 +22,7 @@ device: cuda
 # logger
 log_freq: 10000
 save_video: true
-seed: 42
+seed: 127
 
 hydra:
   run:
